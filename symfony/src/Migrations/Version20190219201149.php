@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * This file is part of TechnicalTestSymfony4.
  *
  * @author Anthony Margerand <anthony.margerand@protonmail.com>

@@ -24,6 +24,7 @@ return PhpCsFixer\Config::create()
         'combine_consecutive_unsets' => true,
         'declare_strict_types' => true,
         'header_comment' => [
+            'commentType' => 'PHPDoc',
             'header' => $header,
             'separate' => 'none',
             'location' => 'after_open',
