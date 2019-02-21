@@ -2,9 +2,9 @@
 /**
  * This file is part of TechnicalTestSymfony4.
  *
- * @author    Anthony Margerand <anthony.margerand@protonmail.com>
+ * @author  Anthony Margerand <anthony.margerand@protonmail.com>
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link    https://github.com/RealAestan/TechnicalTestSymfony4
- * @license GPL
  */
 declare(strict_types=1);
 
