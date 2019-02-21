@@ -33,14 +33,14 @@ class MarkRepository extends ServiceEntityRepository
      */
     public function findLatestOfStudent(Student $student, int $page = 1): Pagerfanta
     {
-        $qb = $this->createQueryBuilder('m')
+        $queryBuilder = $this->createQueryBuilder('m')
             ->addSelect('m')
             ->innerJoin('m.student', 's')
             ->andWhere('s = :student')
             ->setParameter('student', $student)
             ->orderBy('m.id', 'DESC');
 
-        return $this->createPaginator($qb->getQuery(), $page);
+        return $this->createPaginator($queryBuilder->getQuery(), $page);
     }
 
     /**

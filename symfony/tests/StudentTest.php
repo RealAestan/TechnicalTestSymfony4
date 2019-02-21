@@ -19,6 +19,9 @@ class StudentTest extends WebTestCase
             'student[birthDate][month]' => '6',
             'student[birthDate][year]' => '1966',
         ]);
-        $this->assertTrue(strpos($client->submit($form)->html(), 'Redirecting to /students') !== false);
+        $this->assertTrue(strpos(
+            $client->submit($form)->html(),
+            'Redirecting to /students'
+        ) !== false);
     }
 }

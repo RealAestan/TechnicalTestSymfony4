@@ -31,7 +31,6 @@ $ sudo systemctl enable docker.service
 $ sudo systemctl start docker.service
 ```
 
-
 ### CentOS/RHEL
 
 ```bash

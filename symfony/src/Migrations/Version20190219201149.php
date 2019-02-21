@@ -10,16 +10,22 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * This migrations create the default schema of our app
  *
- * @package DoctrineMigrations
  * @author Anthony Margerand <anthony.margerand@protonmail.com>
  */
 final class Version20190219201149 extends AbstractMigration
 {
+    /**
+     * @return string
+     */
     public function getDescription() : string
     {
         return 'This migrations create the default schema of our app';
     }
 
+    /**
+     * @param Schema $schema
+     * @throws \Doctrine\DBAL\DBALException
+     */
     public function up(Schema $schema) : void
     {
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
@@ -29,6 +35,10 @@ final class Version20190219201149 extends AbstractMigration
         $this->addSql('ALTER TABLE mark ADD CONSTRAINT FK_6674F271CB944F1A FOREIGN KEY (student_id) REFERENCES student (id)');
     }
 
+    /**
+     * @param Schema $schema
+     * @throws \Doctrine\DBAL\DBALException
+     */
     public function down(Schema $schema) : void
     {
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');

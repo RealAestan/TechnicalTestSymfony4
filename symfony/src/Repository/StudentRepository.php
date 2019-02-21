@@ -31,12 +31,12 @@ class StudentRepository extends ServiceEntityRepository
      */
     public function findLatest(int $page = 1): Pagerfanta
     {
-        $qb = $this->createQueryBuilder('s')
+        $queryBuilder = $this->createQueryBuilder('s')
             ->addSelect('s', 'm')
             ->leftJoin('s.marks', 'm')
             ->orderBy('s.id', 'DESC');
 
-        return $this->createPaginator($qb->getQuery(), $page);
+        return $this->createPaginator($queryBuilder->getQuery(), $page);
     }
 
     /**

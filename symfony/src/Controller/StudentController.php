@@ -55,9 +55,9 @@ class StudentController extends AbstractController
             ->add('saveAndCreateNew', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($student);
-            $em->flush();
+            $objectManager = $this->getDoctrine()->getManager();
+            $objectManager->persist($student);
+            $objectManager->flush();
             $this->addFlash('success', 'student.created_successfully');
             if ($form->get('saveAndCreateNew')->isClicked()) {
                 return $this->redirectToRoute('student_new');

@@ -54,9 +54,9 @@ class MarkController extends AbstractController
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
             return $this->redirectToRoute('mark_index');
         }
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($mark);
-        $em->flush();
+        $objectManager = $this->getDoctrine()->getManager();
+        $objectManager->remove($mark);
+        $objectManager->flush();
         $this->addFlash('success', 'mark.deleted_successfully');
         return $this->redirectToRoute('mark_index');
     }
