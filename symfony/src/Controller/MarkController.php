@@ -69,10 +69,10 @@ class MarkController extends AbstractController
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
             return $this->redirectToRoute(
                 'student_show',
-                    [
+                [
                         'id' => $mark->getStudent()->getId(),
-                    ]
-                );
+                ]
+            );
         }
         $objectManager = $this->getDoctrine()->getManager();
         $objectManager->remove($mark);
