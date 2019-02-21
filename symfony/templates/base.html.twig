@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{% block title %}Symfony Technical Test{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('css/app') }}
+    {% endblock %}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body id="{% block body_id %}{% endblock %}">
+
+{% block header %}
+    <header>
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header col-md-4 col-lg-4">
+                    <span class="navbar-brand">
+                        Symfony Technical Test
+                    </span>
+
+                    <button type="button" class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                        <span class="sr-only">{{ 'menu.toggle_nav'|trans }}</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        {% block header_navigation_links %}
+                            <li>
+                                <a href="{{ path('student_index') }}">
+                                    <i class="fa fa-users" aria-hidden="true"></i> {{ 'menu.student'|trans }}
+                                </a>
+                            </li>
+                        {% endblock %}
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+<div class="container body-container">
+    {% block body %}
+        <div class="row">
+            <main class="col-sm-9">
+                {{ include('default/_flash_messages.html.twig') }}
+
+                {% block main %}{% endblock %}
+            </main>
+
+            <aside id="sidebar" class="col-sm-3">
+                {% block sidebar %}
+                    <div class="form-group section">
+                        <label for="search-student">{{ 'action.search_student'|trans }}</label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="search-student"
+                            data-fetch-url="{{ path('student_search') }}"
+                            data-select-url="{{ path('student_show_empty') }}"
+                        >
+                    </div>
+                {% endblock %}
+            </aside>
+        </div>
+    {% endblock %}
+</div>
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('js/app') }}
+{% endblock %}
+
+</body>
+</html>

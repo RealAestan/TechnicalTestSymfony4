@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'student_new' %}
+
+{% block main %}
+    <h1>{{ 'title.student_new'|trans }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.firstName) }}
+    {{ form_row(form.lastName) }}
+    {{ form_row(form.birthDate) }}
+
+    <button type="submit" class="btn btn-success">
+        <i class="fa fa-save" aria-hidden="true"></i> {{ 'label.create_student'|trans }}
+    </button>
+    {{ form_widget(form.saveAndCreateNew, {label: 'label.save_and_create_new', attr: {class: 'btn btn-success'}}) }}
+    <a href="{{ path('student_index') }}" class="btn btn-link">
+        <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_list'|trans }}
+    </a>
+    {{ form_end(form) }}
+{% endblock %}

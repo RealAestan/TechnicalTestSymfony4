@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'student_edit' %}
+
+{% block main %}
+    <h1>{{ 'title.edit_student'|trans({'%id%': student.id}) }}</h1>
+
+    {{ include('student/_form.html.twig', {
+        form: form,
+        button_label: 'action.save'|trans,
+        include_back_to_home_link: true,
+    }, with_context = false) }}
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section">
+        <a href="{{ path('student_add_mark', {id: student.id}) }}" class="btn btn-lg btn-block btn-primary">
+            <i class="fa fa-sticky-note-o" aria-hidden="true"></i> {{ 'action.add_mark'|trans }}
+        </a>
+        <a href="{{ path('student_show', {id: student.id}) }}" class="btn btn-lg btn-block btn-success">
+            <i class="fa fa-eye" aria-hidden="true"></i> {{ 'action.show_student'|trans }}
+        </a>
+    </div>
+
+    <div class="section actions">
+        {{ include('student/_delete_form.html.twig', {student: student}, with_context = false) }}
+    </div>
+
+    {{ parent() }}
+{% endblock %}

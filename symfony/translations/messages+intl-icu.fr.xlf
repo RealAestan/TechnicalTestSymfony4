@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="title.student_list">
+                <source>title.student_list</source>
+                <target>Liste des étudiants</target>
+            </trans-unit>
+            <trans-unit id="menu.student">
+                <source>menu.student</source>
+                <target>Étudiants</target>
+            </trans-unit>
+            <trans-unit id="label.first_name">
+                <source>label.first_name</source>
+                <target>Prénom</target>
+            </trans-unit>
+            <trans-unit id="label.last_name">
+                <source>label.last_name</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="student.no_students_found">
+                <source>student.no_students_found</source>
+                <target>Aucun étudiant trouvé</target>
+            </trans-unit>
+            <trans-unit id="student.no_marks_found">
+                <source>student.no_marks_found</source>
+                <target>Cet étudiant ne possède aucune note</target>
+            </trans-unit>
+            <trans-unit id="created_by">
+                <source>created_by</source>
+                <target>Créé par</target>
+            </trans-unit>
+            <trans-unit id="action.create_student">
+                <source>action.create_student</source>
+                <target>Ajouter un étudiant</target>
+            </trans-unit>
+            <trans-unit id="title.student_new">
+                <source>title.student_new</source>
+                <target>Ajouter un étudiant</target>
+            </trans-unit>
+            <trans-unit id="label.birth_date">
+                <source>label.birth_date</source>
+                <target>Date de naissance</target>
+            </trans-unit>
+            <trans-unit id="label.create_student">
+                <source>label.create_student</source>
+                <target>Ajouter</target>
+            </trans-unit>
+            <trans-unit id="label.save_and_create_new">
+                <source>label.save_and_create_new</source>
+                <target>Ajouter et ajouter un(e) autre</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Revenir à la liste</target>
+            </trans-unit>
+            <trans-unit id="action.show">
+                <source>action.show</source>
+                <target>Voir</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Éditer</target>
+            </trans-unit>
+            <trans-unit id="menu.toggle_nav">
+                <source>menu.toggle_nav</source>
+                <target>Menu</target>
+            </trans-unit>
+            <trans-unit id="student.created_successfully">
+                <source>student.created_successfully</source>
+                <target>Étudiant enregistré avec succès</target>
+            </trans-unit>
+            <trans-unit id="mark.created_successfully">
+                <source>mark.created_successfully</source>
+                <target>Note enregistré avec succès</target>
+            </trans-unit>
+            <trans-unit id="action.delete_student">
+                <source>action.delete_student</source>
+                <target>Supprimer l'étudiant</target>
+            </trans-unit>
+            <trans-unit id="action.delete_mark">
+                <source>action.delete_mark</source>
+                <target>Supprimer la note</target>
+            </trans-unit>
+            <trans-unit id="action.edit_contents">
+                <source>action.edit_contents</source>
+                <target>Éditer les informations</target>
+            </trans-unit>
+            <trans-unit id="student.deleted_successfully">
+                <source>student.deleted_successfully</source>
+                <target>Étudiant supprimé avec succès</target>
+            </trans-unit>
+            <trans-unit id="title.edit_student">
+                <source>title.edit_student</source>
+                <target>Éditer un étudiant</target>
+            </trans-unit>
+            <trans-unit id="title.edit_mark">
+                <source>title.edit_mark</source>
+                <target>Éditer une note</target>
+            </trans-unit>
+            <trans-unit id="action.show_student">
+                <source>action.show_student</source>
+                <target>Voir l'étudiant</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+            <trans-unit id="student.updated_successfully">
+                <source>student.updated_successfully</source>
+                <target>Étudiant modifié avec succès</target>
+            </trans-unit>
+            <trans-unit id="delete_student_modal.title">
+                <source>delete_student_modal.title</source>
+                <target>Supprimer un étudiant</target>
+            </trans-unit>
+            <trans-unit id="delete_student_modal.body">
+                <source>delete_student_modal.body</source>
+                <target>Êtes-vous sûr de vouloir supprimer l'étudiant ?</target>
+            </trans-unit>
+            <trans-unit id="delete_mark_modal.title">
+                <source>delete_mark_modal.title</source>
+                <target>Supprimer une note</target>
+            </trans-unit>
+            <trans-unit id="delete_mark_modal.body">
+                <source>delete_mark_modal.body</source>
+                <target>Êtes-vous sûr de vouloir supprimer cette note ?</target>
+            </trans-unit>
+            <trans-unit id="label.cancel">
+                <source>label.cancel</source>
+                <target>Annuler</target>
+            </trans-unit>
+            <trans-unit id="label.delete_student">
+                <source>label.delete_student</source>
+                <target>Supprimer un étudiant</target>
+            </trans-unit>
+            <trans-unit id="label.delete_mark">
+                <source>label.delete_mark</source>
+                <target>Supprimer une note</target>
+            </trans-unit>
+            <trans-unit id="action.add_mark">
+                <source>action.add_mark</source>
+                <target>Ajouter une note</target>
+            </trans-unit>
+            <trans-unit id="title.mark_new">
+                <source>title.mark_new</source>
+                <target>Ajouter une note</target>
+            </trans-unit>
+            <trans-unit id="label.subject">
+                <source>label.subject</source>
+                <target>Matière</target>
+            </trans-unit>
+            <trans-unit id="label.result">
+                <source>label.result</source>
+                <target>Note</target>
+            </trans-unit>
+            <trans-unit id="label.create_mark">
+                <source>label.create_mark</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_student">
+                <source>action.back_to_student</source>
+                <target>Retourner sur la fiche étudiant</target>
+            </trans-unit>
+            <trans-unit id="action.delete">
+                <source>action.delete</source>
+                <target>Supprimer</target>
+            </trans-unit>
+            <trans-unit id="Year">
+                <source>Year</source>
+                <target>Année</target>
+            </trans-unit>
+            <trans-unit id="Month">
+                <source>Month</source>
+                <target>Mois</target>
+            </trans-unit>
+            <trans-unit id="Day">
+                <source>Day</source>
+                <target>Jour</target>
+            </trans-unit>
+            <trans-unit id="action.search_student">
+                <source>action.search_student</source>
+                <target>Rechercher un étudiant</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

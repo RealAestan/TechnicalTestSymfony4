@@ -1,0 +1,18 @@
+{% if show_confirmation|default(false) %}
+    {% set attr = {'data-confirmation': 'true'} %}
+    {{ include('mark/_delete_mark_confirmation.html.twig') }}
+{% endif %}
+
+{{ form_start(form, {attr: attr|default({})}) }}
+    {{ form_widget(form) }}
+
+<button type="submit" class="{{ button_css|default("btn btn-success") }}">
+    <i class="fa fa-save" aria-hidden="true"></i> {{ button_label|default('label.create_mark'|trans) }}
+</button>
+
+{% if include_back_to_home_link|default(false) %}
+    <a href="{{ path('student_show', {id: mark.student.id} ) }}" class="btn btn-link">
+        <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_student'|trans }}
+    </a>
+{% endif %}
+{{ form_end(form) }}

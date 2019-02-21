@@ -1,0 +1,5 @@
+App\Entity\Student:
+  student_{1..100}:
+    firstName: '<firstName()>'
+    lastName: '<lastName()>'
+    birthDate: '<identity(new \DateTimeImmutable())>'

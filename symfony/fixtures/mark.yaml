@@ -1,0 +1,5 @@
+App\Entity\Mark:
+  mark_{1..1000}:
+    subject: 'Programming'
+    result: '<numberBetween(0, 20)>'
+    student: '@student_*'

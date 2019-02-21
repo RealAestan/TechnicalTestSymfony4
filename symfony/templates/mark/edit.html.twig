@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'mark_edit' %}
+
+{% block main %}
+    <h1>{{ 'title.edit_mark'|trans({'%id%': mark.id}) }}</h1>
+
+    {{ include('mark/_form.html.twig', {
+        mark: mark,
+        form: form,
+        button_label: 'action.save'|trans,
+        include_back_to_home_link: true,
+    }, with_context = false) }}
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section actions">
+        {{ include('mark/_delete_form.html.twig', {mark: mark, editPage: true}, with_context = false) }}
+    </div>
+
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,8 @@
+{{ include('mark/_delete_mark_confirmation.html.twig') }}
+<form class="{% if editPage == false %}inline-form{% endif %}" action="{{ url('mark_delete', {id: mark.id}) }}" method="post" data-confirmation="true" id="delete-form">
+    <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
+    <button type="submit" class="btn {% if editPage %}btn-lg btn-block{% else %}btn-sm{% endif %} btn-danger">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+        {% if editPage %}{{ 'action.delete_mark'|trans }}{% else %}{{ 'action.delete'|trans }}{% endif %}
+    </button>
+</form>
