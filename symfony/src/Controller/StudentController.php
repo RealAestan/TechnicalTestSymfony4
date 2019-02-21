@@ -180,9 +180,9 @@ class StudentController extends AbstractController
     public function delete(Request $request, Student $student): Response
     {
         if (!$this->isCsrfTokenValid(
-                'delete',
-                $request->request->get('token')
-            )
+            'delete',
+            $request->request->get('token')
+        )
         ) {
             return $this->redirectToRoute('student_index');
         }
@@ -226,9 +226,9 @@ class StudentController extends AbstractController
             ->add('saveAndCreateNew', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($mark);
-            $em->flush();
+            $objectManager = $this->getDoctrine()->getManager();
+            $objectManager->persist($mark);
+            $objectManager->flush();
             $this->addFlash('success', 'mark.created_successfully');
             if ($form->get('saveAndCreateNew')->isClicked()) {
                 return $this->redirectToRoute(
