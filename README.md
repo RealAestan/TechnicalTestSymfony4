@@ -1,5 +1,7 @@
 # Mini application symfony 4
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/63b703c9cb99471fb35bb42486013c8c)](https://app.codacy.com/app/RealAestan/TechnicalTestSymfony4?utm_source=github.com&utm_medium=referral&utm_content=RealAestan/TechnicalTestSymfony4&utm_campaign=Badge_Grade_Dashboard)
+
 ## Installation
 
 ### Cloner le repository
