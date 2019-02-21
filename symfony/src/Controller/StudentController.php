@@ -29,7 +29,11 @@ class StudentController extends AbstractController
 {
     /**
      * @Route("", defaults={"page": "1"}, methods={"GET"}, name="student_index")
-     * @Route("/page/{page<[1-9]\d*>}", methods={"GET"}, name="student_index_paginated")
+     * @Route(
+     *     "/page/{page<[1-9]\d*>}",
+     *     methods={"GET"},
+     *     name="student_index_paginated"
+     * )
      * @Cache(smaxage="10")
      * @param int $page
      * @param StudentRepository $students
@@ -38,7 +42,10 @@ class StudentController extends AbstractController
     public function index(int $page, StudentRepository $students): Response
     {
         $latestStudents = $students->findLatest($page);
-        return $this->render('student/index.html.twig', ['students' => $latestStudents]);
+        return $this->render(
+            'student/index.html.twig',
+            ['students' => $latestStudents]
+        );
     }
 
     /**
@@ -73,16 +80,33 @@ class StudentController extends AbstractController
     /**
      * Finds and displays a Student entity.
      *
-     * @Route("/{id<\d+>}", defaults={"page": "1"}, methods={"GET"}, name="student_show")
-     * @Route("/{id<\d+>}", defaults={"id": "1", "page": "1"}, methods={"GET"}, name="student_show_empty")
-     * @Route("/{id<\d+>}/page/{page<[1-9]\d*>}", methods={"GET"}, name="student_show_paginated")
+     * @Route(
+     *     "/{id<\d+>}",
+     *     defaults={"page": "1"},
+     *     methods={"GET"},
+     *     name="student_show"
+     * )
+     * @Route(
+     *     "/{id<\d+>}",
+     *     defaults={"id": "1", "page": "1"},
+     *     methods={"GET"},
+     *     name="student_show_empty"
+     * )
+     * @Route(
+     *     "/{id<\d+>}/page/{page<[1-9]\d*>}",
+     *     methods={"GET"},
+     *     name="student_show_paginated"
+     * )
      * @param Student $student
      * @param int $page
      * @param MarkRepository $marks
      * @return Response
      */
-    public function show(Student $student, int $page, MarkRepository $marks): Response
-    {
+    public function show(
+        Student $student,
+        int $page,
+        MarkRepository $marks
+    ): Response {
         $latestMarks = $marks->findLatestOfStudent($student, $page);
         return $this->render('student/show.html.twig', [
             'student' => $student,
@@ -103,7 +127,10 @@ class StudentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'student.updated_successfully');
-            return $this->redirectToRoute('student_edit', ['id' => $student->getId()]);
+            return $this->redirectToRoute(
+                'student_edit',
+                ['id' => $student->getId()]
+            );
         }
         return $this->render('student/edit.html.twig', [
             'student' => $student,
@@ -121,7 +148,10 @@ class StudentController extends AbstractController
      */
     public function delete(Request $request, Student $student): Response
     {
-        if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
+        if (!$this->isCsrfTokenValid(
+            'delete',
+            $request->request->get('token')
+        )) {
             return $this->redirectToRoute('student_index');
         }
         $em = $this->getDoctrine()->getManager();
@@ -163,9 +193,15 @@ class StudentController extends AbstractController
             $em->flush();
             $this->addFlash('success', 'mark.created_successfully');
             if ($form->get('saveAndCreateNew')->isClicked()) {
-                return $this->redirectToRoute('student_add_mark', ['id' => $student->getId()]);
+                return $this->redirectToRoute(
+                    'student_add_mark',
+                    ['id' => $student->getId()]
+                );
             }
-            return $this->redirectToRoute('student_show', ['id' => $student->getId()]);
+            return $this->redirectToRoute(
+                'student_show',
+                ['id' => $student->getId()]
+            );
         }
         return $this->render('mark/new.html.twig', [
             'student' => $student,
