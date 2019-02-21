@@ -52,8 +52,7 @@ class StudentType extends AbstractType
                     'label' => 'label.birth_date',
                     'input' => 'datetime_immutable',
                 ]
-            )
-        ;
+            );
     }
 
     /**
