@@ -245,7 +245,7 @@ class StudentController extends AbstractController
 
         return $this->render(
             'mark/new.html.twig',
-                [
+            [
                 'student' => $student,
                 'mark' => $mark,
                 'form' => $form->createView(),
