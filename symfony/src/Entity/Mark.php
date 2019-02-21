@@ -31,42 +31,42 @@ class Mark
      *
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="id", type="integer")
      */
-    private $id;
+    private $_id;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="subject", type="string")
      * @Assert\NotBlank()
      */
-    private $subject;
+    private $_subject;
 
     /**
      * @var float
      *
-     * @ORM\Column(type="float")
+     * @ORM\Column(name="result", type="float")
      * @Assert\NotBlank()
      * @Assert\Range(min = 0, max = 20)
      * @Assert\Regex("/^[0-2][0-9]?(\.[0-9]+)?/")
      */
-    private $result;
+    private $_result;
 
     /**
      * @var Student
      *
      * @ORM\ManyToOne(targetEntity="Student", inversedBy="marks")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="student_id", nullable=false)
      */
-    private $student;
+    private $_student;
 
     /**
      * @return int
      */
     public function getId(): int
     {
-        return $this->id;
+        return $this->_id;
     }
 
     /**
@@ -74,7 +74,7 @@ class Mark
      */
     public function getSubject(): string
     {
-        return (string) $this->subject;
+        return (string) $this->_subject;
     }
 
     /**
@@ -82,7 +82,7 @@ class Mark
      */
     public function getResult(): float
     {
-        return (float) $this->result;
+        return (float) $this->_result;
     }
 
     /**
@@ -90,45 +90,45 @@ class Mark
      */
     public function getStudent(): Student
     {
-        if ($this->student instanceof Student) {
-            return $this->student;
+        if ($this->_student instanceof Student) {
+            return $this->_student;
         }
 
         return new Student();
     }
 
     /**
-     * @param string $subject subject
+     * @param string $_subject subject
      *
      * @return Mark
      */
-    public function setSubject(string $subject): Mark
+    public function setSubject(string $_subject): Mark
     {
-        $this->subject = $subject;
+        $this->_subject = $_subject;
 
         return $this;
     }
 
     /**
-     * @param float $result result
+     * @param float $_result result
      *
      * @return Mark
      */
-    public function setResult(float $result): Mark
+    public function setResult(float $_result): Mark
     {
-        $this->result = $result;
+        $this->_result = $_result;
 
         return $this;
     }
 
     /**
-     * @param Student $student student
+     * @param Student $_student student
      *
      * @return Mark
      */
-    public function setStudent(Student $student): Mark
+    public function setStudent(Student $_student): Mark
     {
-        $this->student = $student;
+        $this->_student = $_student;
 
         return $this;
     }

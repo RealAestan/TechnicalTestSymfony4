@@ -24,8 +24,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class MarkType extends AbstractType
 {
     /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param FormBuilderInterface $builder builder
+     * @param array                $options options
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -50,7 +50,7 @@ class MarkType extends AbstractType
     }
 
     /**
-     * @param OptionsResolver $resolver
+     * @param OptionsResolver $resolver resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {

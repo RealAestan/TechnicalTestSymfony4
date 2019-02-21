@@ -37,33 +37,33 @@ class Student implements \JsonSerializable
      *
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="id", type="integer")
      */
-    private $id;
+    private $_id;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="first_name", type="string")
      * @Assert\NotBlank()
      */
-    private $firstName;
+    private $_firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="last_name", type="string")
      * @Assert\NotBlank()
      */
-    private $lastName;
+    private $_lastName;
 
     /**
      * @var \DateTimeImmutable
      *
-     * @ORM\Column(type="date_immutable")
+     * @ORM\Column(name="birth_date", type="date_immutable")
      * @Assert\NotBlank()
      */
-    private $birthDate;
+    private $_birthDate;
 
     /**
      * @var Mark[]|ArrayCollection
@@ -75,11 +75,11 @@ class Student implements \JsonSerializable
      *      cascade={"persist"}
      * )
      */
-    private $marks;
+    private $_marks;
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->_id;
     }
 
     /**
@@ -87,7 +87,7 @@ class Student implements \JsonSerializable
      */
     public function getFirstName(): string
     {
-        return (string) $this->firstName;
+        return (string) $this->_firstName;
     }
 
     /**
@@ -95,7 +95,7 @@ class Student implements \JsonSerializable
      */
     public function getLastName(): string
     {
-        return (string) $this->lastName;
+        return (string) $this->_lastName;
     }
 
     /**
@@ -103,7 +103,7 @@ class Student implements \JsonSerializable
      */
     public function getMarks()
     {
-        return $this->marks;
+        return $this->_marks;
     }
 
     /**
@@ -113,45 +113,45 @@ class Student implements \JsonSerializable
      */
     public function getBirthDate(): \DateTimeImmutable
     {
-        if ($this->birthDate instanceof \DateTimeInterface) {
-            return $this->birthDate;
+        if ($this->_birthDate instanceof \DateTimeInterface) {
+            return $this->_birthDate;
         }
 
         return new \DateTimeImmutable();
     }
 
     /**
-     * @param string $firstName
+     * @param string $_firstName
      *
      * @return Student
      */
-    public function setFirstName(string $firstName): Student
+    public function setFirstName(string $_firstName): Student
     {
-        $this->firstName = $firstName;
+        $this->_firstName = $_firstName;
 
         return $this;
     }
 
     /**
-     * @param string $lastName
+     * @param string $_lastName
      *
      * @return Student
      */
-    public function setLastName(string $lastName): Student
+    public function setLastName(string $_lastName): Student
     {
-        $this->lastName = $lastName;
+        $this->_lastName = $_lastName;
 
         return $this;
     }
 
     /**
-     * @param \DateTimeImmutable $birthDate
+     * @param \DateTimeImmutable $_birthDate
      *
      * @return Student
      */
-    public function setBirthDate(\DateTimeImmutable $birthDate): Student
+    public function setBirthDate(\DateTimeImmutable $_birthDate): Student
     {
-        $this->birthDate = $birthDate;
+        $this->_birthDate = $_birthDate;
 
         return $this;
     }
@@ -163,7 +163,7 @@ class Student implements \JsonSerializable
      */
     public function addMark(Mark $mark): Student
     {
-        $this->marks[] = $mark;
+        $this->_marks[] = $mark;
 
         return $this;
     }
@@ -175,7 +175,7 @@ class Student implements \JsonSerializable
      */
     public function removeMark(Mark $mark): Student
     {
-        $this->marks->removeElement($mark);
+        $this->_marks->removeElement($mark);
 
         return $this;
     }
@@ -188,10 +188,10 @@ class Student implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'id' => $this->id,
-            'firstName' => $this->firstName,
-            'lastName' => $this->lastName,
-            'birthDate' => $this->birthDate->format(\DateTime::W3C),
+            'id' => $this->_id,
+            'firstName' => $this->_firstName,
+            'lastName' => $this->_lastName,
+            'birthDate' => $this->_birthDate->format(\DateTime::W3C),
         ];
     }
 }

@@ -84,10 +84,13 @@ class StudentController extends AbstractController
             return $this->redirectToRoute('student_index');
         }
 
-        return $this->render('student/new.html.twig', [
-            'student' => $student,
-            'form' => $form->createView(),
-        ]);
+        return $this->render(
+            'student/new.html.twig',
+            [
+                'student' => $student,
+                'form' => $form->createView(),
+            ]
+        );
     }
 
     /**
@@ -124,10 +127,13 @@ class StudentController extends AbstractController
     ): Response {
         $latestMarks = $marks->findLatestOfStudent($student, $page);
 
-        return $this->render('student/show.html.twig', [
-            'student' => $student,
-            'marks' => $latestMarks,
-        ]);
+        return $this->render(
+            'student/show.html.twig',
+            [
+                'student' => $student,
+                'marks' => $latestMarks,
+            ]
+        );
     }
 
     /**
@@ -152,10 +158,13 @@ class StudentController extends AbstractController
             );
         }
 
-        return $this->render('student/edit.html.twig', [
-            'student' => $student,
-            'form' => $form->createView(),
-        ]);
+        return $this->render(
+            'student/edit.html.twig',
+            [
+                'student' => $student,
+                'form' => $form->createView(),
+            ]
+        );
     }
 
     /**
@@ -170,17 +179,16 @@ class StudentController extends AbstractController
      */
     public function delete(Request $request, Student $student): Response
     {
-        if (
-            !$this->isCsrfTokenValid(
+        if (!$this->isCsrfTokenValid(
                 'delete',
                 $request->request->get('token')
             )
         ) {
             return $this->redirectToRoute('student_index');
         }
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($student);
-        $em->flush();
+        $objectManager = $this->getDoctrine()->getManager();
+        $objectManager->remove($student);
+        $objectManager->flush();
         $this->addFlash('success', 'student.deleted_successfully');
 
         return $this->redirectToRoute('student_index');
@@ -235,10 +243,13 @@ class StudentController extends AbstractController
             );
         }
 
-        return $this->render('mark/new.html.twig', [
-            'student' => $student,
-            'mark' => $mark,
-            'form' => $form->createView(),
-        ]);
+        return $this->render(
+            'mark/new.html.twig',
+                [
+                'student' => $student,
+                'mark' => $mark,
+                'form' => $form->createView(),
+            ]
+        );
     }
 }

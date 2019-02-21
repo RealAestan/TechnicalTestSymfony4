@@ -48,7 +48,7 @@ class MarkRepository extends ServiceEntityRepository
             ->setParameter('student', $student)
             ->orderBy('m.id', 'DESC');
 
-        return $this->createPaginator($queryBuilder->getQuery(), $page);
+        return $this->_createPaginator($queryBuilder->getQuery(), $page);
     }
 
     /**
@@ -57,7 +57,7 @@ class MarkRepository extends ServiceEntityRepository
      *
      * @return Pagerfanta
      */
-    private function createPaginator(Query $query, int $page): Pagerfanta
+    private function _createPaginator(Query $query, int $page): Pagerfanta
     {
         $paginator = new Pagerfanta(new DoctrineORMAdapter($query));
         $paginator->setMaxPerPage(Mark::PAGE_NUM_ITEMS);

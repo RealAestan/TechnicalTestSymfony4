@@ -21,13 +21,15 @@ class StudentTest extends WebTestCase
     {
         $client = self::createClient();
         $crawler = $client->request('GET', '/students/new');
-        $form = $crawler->filter('form')->form([
-            'student[firstName]' => 'John',
-            'student[lastName]' => 'Snow',
-            'student[birthDate][day]' => '6',
-            'student[birthDate][month]' => '6',
-            'student[birthDate][year]' => '1966',
-        ]);
+        $form = $crawler->filter('form')->form(
+            [
+                'student[firstName]' => 'John',
+                'student[lastName]' => 'Snow',
+                'student[birthDate][day]' => '6',
+                'student[birthDate][month]' => '6',
+                'student[birthDate][year]' => '1966',
+            ]
+        );
         $this->assertTrue(
             \strpos(
                 $client->submit($form)->html(),

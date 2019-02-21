@@ -45,10 +45,13 @@ class MarkController extends AbstractController
             return $this->redirectToRoute('mark_edit', ['id' => $mark->getId()]);
         }
 
-        return $this->render('mark/edit.html.twig', [
-            'mark' => $mark,
-            'form' => $form->createView(),
-        ]);
+        return $this->render(
+            'mark/edit.html.twig',
+            [
+                'mark' => $mark,
+                'form' => $form->createView(),
+            ]
+        );
     }
 
     /**
