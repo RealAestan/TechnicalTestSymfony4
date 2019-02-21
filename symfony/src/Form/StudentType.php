@@ -2,8 +2,9 @@
 /**
  * This file is part of TechnicalTestSymfony4.
  *
- * @author Anthony Margerand <anthony.margerand@protonmail.com>
- * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ * @author    Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link    https://github.com/RealAestan/TechnicalTestSymfony4
+ * @license GPL
  */
 declare(strict_types=1);
 
@@ -23,33 +24,47 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class StudentType extends AbstractType
 {
     /**
-     * {@inheritdoc}
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstName', null, [
-                'attr' => ['autofocus' => true],
-                'label' => 'label.first_name',
-            ])
-
-            ->add('lastName', null, [
-                'label' => 'label.last_name',
-            ])
-            ->add('birthDate', BirthdayType::class, [
-                'label' => 'label.birth_date',
-                'input' => 'datetime_immutable',
-            ])
+            ->add(
+                'firstName',
+                null,
+                [
+                    'attr' => ['autofocus' => true],
+                    'label' => 'label.first_name',
+                ]
+            )
+            ->add(
+                'lastName',
+                null,
+                [
+                    'label' => 'label.last_name',
+                ]
+            )
+            ->add(
+                'birthDate',
+                BirthdayType::class,
+                [
+                    'label' => 'label.birth_date',
+                    'input' => 'datetime_immutable',
+                ]
+            )
         ;
     }
 
     /**
-     * {@inheritdoc}
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-            'data_class' => Student::class,
-        ]);
+        $resolver->setDefaults(
+            [
+                'data_class' => Student::class,
+            ]
+        );
     }
 }

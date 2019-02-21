@@ -2,8 +2,9 @@
 /**
  * This file is part of TechnicalTestSymfony4.
  *
- * @author Anthony Margerand <anthony.margerand@protonmail.com>
- * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ * @author    Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link    https://github.com/RealAestan/TechnicalTestSymfony4
+ * @license GPL
  */
 declare(strict_types=1);
 
@@ -11,11 +12,17 @@ namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class SmokeTest.
+ */
 class SmokeTest extends WebTestCase
 {
     /**
-     * @param string $url url
      * @dataProvider urlProvider
+     *
+     * @param string $url url
+     *
+     * @return void
      */
     public function testPageIsSuccessful(string $url): void
     {

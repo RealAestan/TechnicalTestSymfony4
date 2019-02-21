@@ -3,8 +3,9 @@
 $header = <<<'EOF'
 This file is part of TechnicalTestSymfony4.
 
-@author Anthony Margerand <anthony.margerand@protonmail.com>
-@link https://github.com/RealAestan/TechnicalTestSymfony4
+@author    Anthony Margerand <anthony.margerand@protonmail.com>
+@link    https://github.com/RealAestan/TechnicalTestSymfony4
+@license GPL
 EOF;
 
 return PhpCsFixer\Config::create()
@@ -23,6 +24,7 @@ return PhpCsFixer\Config::create()
         ],
         'combine_consecutive_unsets' => true,
         'declare_strict_types' => true,
+        'phpdoc_no_empty_return' => false,
         'header_comment' => [
             'commentType' => 'PHPDoc',
             'header' => $header,

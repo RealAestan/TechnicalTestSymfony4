@@ -2,8 +2,9 @@
 /**
  * This file is part of TechnicalTestSymfony4.
  *
- * @author Anthony Margerand <anthony.margerand@protonmail.com>
- * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ * @author    Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link    https://github.com/RealAestan/TechnicalTestSymfony4
+ * @license GPL
  */
 declare(strict_types=1);
 
@@ -28,15 +29,23 @@ class MarkType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('subject', null, [
-                'attr' => ['autofocus' => true],
-                'label' => 'label.subject',
-            ])
+            ->add(
+                'subject',
+                null,
+                [
+                    'attr' => ['autofocus' => true],
+                    'label' => 'label.subject',
+                ]
+            )
 
-            ->add('result', NumberType::class, [
-                'label' => 'label.result',
-                'scale' => 2,
-            ])
+            ->add(
+                'result',
+                NumberType::class,
+                [
+                    'label' => 'label.result',
+                    'scale' => 2,
+                ]
+            )
         ;
     }
 
@@ -45,8 +54,10 @@ class MarkType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-            'data_class' => Mark::class,
-        ]);
+        $resolver->setDefaults(
+            [
+                'data_class' => Mark::class,
+            ]
+        );
     }
 }
