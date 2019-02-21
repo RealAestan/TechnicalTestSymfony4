@@ -19,21 +19,66 @@ $ git clone https://github.com/RealAestan/TechnicalTestSymfony4.git
 
 ## Installer les dépendances
 
-### Debian/Ubuntu
+### Ubuntu
 
 ```bash
-$ sudo apt install docker docker-compose make xdg-utils
+$ sudo apt-get update
 ```
 
 ```bash
-$ sudo systemctl enable docker.service
+$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common make xdg-utils
 ```
 
 ```bash
-$ sudo systemctl start docker.service
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+```bash
+$ sudo apt-get update
 ```
 
-### CentOS/RHEL
+```bash
+$ sudo apt install docker-ce python-pip
+```
+
+```bash
+$ sudo usermod -aG docker $(whoami)
+```
+
+```bash
+$ sudo pip install docker-compose
+```
+
+### Debian
+
+```bash
+$ sudo apt-get update
+```
+
+```bash
+$ sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common make xdg-utils
+```
+
+```bash
+$ curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+```
+
+```bash
+$ sudo apt-get update
+```
+
+```bash
+$ sudo apt install docker-ce python-pip
+```
+
+```bash
+$ sudo usermod -aG docker $(whoami)
+```
+
+```bash
+$ sudo pip install docker-compose
+```
+
+### CentOS
 
 ```bash
 $ sudo yum install -y yum-utils device-mapper-persistent-data lvm2 make epel-release xdg-utils
