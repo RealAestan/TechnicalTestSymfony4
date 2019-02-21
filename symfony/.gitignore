@@ -30,3 +30,7 @@ yarn-error.log
 /.phpcs-cache
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
+###> friendsofphp/php-cs-fixer ###
+/.php_cs.cache
+/.php_cs
+###< friendsofphp/php-cs-fixer ###

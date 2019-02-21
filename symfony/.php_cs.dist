@@ -1,0 +1,108 @@
+<?php
+
+$header = <<<'EOF'
+This file is part of TechnicalTestSymfony4.
+
+@author Anthony Margerand <anthony.margerand@protonmail.com>
+@link https://github.com/RealAestan/TechnicalTestSymfony4
+EOF;
+
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@PHP71Migration' => true,
+        '@PSR2' => true,
+        '@Symfony' => true,
+        'align_multiline_comment' => true,
+        'array_syntax' => [
+            'syntax' => 'short',
+        ],
+        'binary_operator_spaces' => [
+            'align_double_arrow' => false,
+            'align_equals' => false,
+        ],
+        'combine_consecutive_unsets' => true,
+        'declare_strict_types' => true,
+        'header_comment' => [
+            'header' => $header,
+            'separate' => 'none',
+            'location' => 'after_open',
+        ],
+        'linebreak_after_opening_tag' => true,
+        'list_syntax' => [
+            'syntax' => 'short',
+        ],
+        'native_function_casing' => true,
+        'native_function_invocation' => true,
+        'no_empty_statement' => true,
+        'no_extra_consecutive_blank_lines' => [
+            'tokens' => [
+                'break',
+                'continue',
+                'extra',
+                'return',
+                'throw',
+                'use',
+                'parenthesis_brace_block',
+                'square_brace_block',
+                'curly_brace_block',
+            ],
+        ],
+        'no_superfluous_elseif' => true,
+        'no_unreachable_default_argument_value' => true,
+        'no_unused_imports' => true,
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+        'no_whitespace_in_blank_line' => true,
+        'object_operator_without_whitespace' => true,
+        'ordered_class_elements' => [
+            'order' => [
+                'use_trait',
+                'constant_public',
+                'constant_protected',
+                'constant_private',
+                'property_public_static',
+                'property_protected_static',
+                'property_private_static',
+                'property_public',
+                'property_protected',
+                'property_private',
+                'method_public_static',
+                'construct',
+                'destruct',
+                'magic',
+                'phpunit',
+                'method_public',
+                'method_protected',
+                'method_private',
+                'method_protected_static',
+                'method_private_static',
+            ],
+        ],
+        'ordered_imports' => true,
+        'space_after_semicolon' => true,
+        'standardize_not_equals' => true,
+        'ternary_to_null_coalescing' => true,
+        'trailing_comma_in_multiline_array' => true,
+        'visibility_required' => [
+            'const',
+            'method',
+            'property',
+        ],
+        'void_return' => true,
+        'yoda_style' => [
+            'equal' => false,
+            'identical' => false,
+        ],
+    ])
+    ->setUsingCache(true)
+    ->setFinder(
+        PhpCsFixer\Finder::create()
+           ->exclude(
+               [
+                   'var',
+                   'vendor',
+               ]
+           )
+           ->in(__DIR__)
+    );
