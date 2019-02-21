@@ -18,7 +18,7 @@ class StudentRepository extends ServiceEntityRepository
 {
     /**
      * StudentRepository constructor.
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -26,7 +26,7 @@ class StudentRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param int $page
+     * @param int $page page
      * @return Pagerfanta
      */
     public function findLatest(int $page = 1): Pagerfanta
@@ -40,7 +40,7 @@ class StudentRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param string $query
+     * @param string $query query
      * @return Student[]
      */
     public function search(string $query): array

@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class SmokeTest extends WebTestCase
 {
     /**
-     * @param string $url
+     * @param string $url url
      * @dataProvider urlProvider
      */
     public function testPageIsSuccessful(string $url)

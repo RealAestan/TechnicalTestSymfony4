@@ -91,7 +91,7 @@ class Mark
     }
 
     /**
-     * @param string $subject
+     * @param string $subject subject
      * @return Mark
      */
     public function setSubject(string $subject): Mark
@@ -101,7 +101,7 @@ class Mark
     }
 
     /**
-     * @param float $result
+     * @param float $result result
      * @return Mark
      */
     public function setResult(float $result): Mark
@@ -111,7 +111,7 @@ class Mark
     }
 
     /**
-     * @param Student $student
+     * @param Student $student student
      * @return Mark
      */
     public function setStudent(Student $student): Mark

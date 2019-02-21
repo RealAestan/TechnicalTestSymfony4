@@ -35,8 +35,8 @@ class StudentController extends AbstractController
      *     name="student_index_paginated"
      * )
      * @Cache(smaxage="10")
-     * @param int $page
-     * @param StudentRepository $students
+     * @param int $page page
+     * @param StudentRepository $students students
      * @return Response
      */
     public function index(int $page, StudentRepository $students): Response
@@ -52,7 +52,7 @@ class StudentController extends AbstractController
      * Creates a new Student entity.
      *
      * @Route("/new", methods={"GET", "POST"}, name="student_new")
-     * @param Request $request
+     * @param Request $request request
      * @return Response
      */
     public function new(Request $request): Response
@@ -97,9 +97,9 @@ class StudentController extends AbstractController
      *     methods={"GET"},
      *     name="student_show_paginated"
      * )
-     * @param Student $student
-     * @param int $page
-     * @param MarkRepository $marks
+     * @param Student $student student
+     * @param int $page page
+     * @param MarkRepository $marks marks
      * @return Response
      */
     public function show(
@@ -116,8 +116,8 @@ class StudentController extends AbstractController
 
     /**
      * @Route("/{id}/edit", methods={"GET", "POST"}, name="student_edit")
-     * @param Request $request
-     * @param Student $student
+     * @param Request $request request
+     * @param Student $student student
      * @return Response
      */
     public function edit(Request $request, Student $student): Response
@@ -142,16 +142,18 @@ class StudentController extends AbstractController
      * Deletes a Student entity.
      *
      * @Route("/{id}/delete", methods={"POST"}, name="student_delete")
-     * @param Request $request
-     * @param Student $student
+     * @param Request $request request
+     * @param Student $student student
      * @return Response
      */
     public function delete(Request $request, Student $student): Response
     {
-        if (!$this->isCsrfTokenValid(
-            'delete',
-            $request->request->get('token')
-        )) {
+        if (
+            !$this->isCsrfTokenValid(
+                'delete',
+                $request->request->get('token')
+            )
+        ) {
             return $this->redirectToRoute('student_index');
         }
         $em = $this->getDoctrine()->getManager();
@@ -164,8 +166,8 @@ class StudentController extends AbstractController
     /**
      * @Route("/search/{query}", methods={"GET"}, name="student_search")
      * @Cache(smaxage="10")
-     * @param string $query
-     * @param StudentRepository $students
+     * @param string $query query
+     * @param StudentRepository $students students
      * @return JsonResponse
      */
     public function search(StudentRepository $students, string $query = ''): Response
@@ -176,8 +178,8 @@ class StudentController extends AbstractController
 
     /**
      * @Route("/{id}/mark", methods={"GET", "POST"}, name="student_add_mark")
-     * @param Request $request
-     * @param Student $student
+     * @param Request $request request
+     * @param Student $student student
      * @return Response
      */
     public function addMark(Request $request, Student $student): Response

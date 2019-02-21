@@ -19,7 +19,7 @@ class MarkRepository extends ServiceEntityRepository
 {
     /**
      * MarkRepository constructor.
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry registre
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -27,8 +27,8 @@ class MarkRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param Student $student
-     * @param int $page
+     * @param Student $student student
+     * @param int $page page
      * @return Pagerfanta
      */
     public function findLatestOfStudent(Student $student, int $page = 1): Pagerfanta
@@ -44,8 +44,8 @@ class MarkRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param Query $query
-     * @param int $page
+     * @param Query $query query
+     * @param int $page page
      * @return Pagerfanta
      */
     private function createPaginator(Query $query, int $page): Pagerfanta

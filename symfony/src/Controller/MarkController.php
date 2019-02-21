@@ -22,8 +22,8 @@ class MarkController extends AbstractController
 {
     /**
      * @Route("/{id}/edit", methods={"GET", "POST"}, name="mark_edit")
-     * @param Request $request
-     * @param Mark $mark
+     * @param Request $request request
+     * @param Mark $mark mark
      * @return Response
      */
     public function edit(Request $request, Mark $mark): Response
@@ -45,8 +45,8 @@ class MarkController extends AbstractController
      * Deletes a Mark entity.
      *
      * @Route("/{id}/delete", methods={"POST"}, name="mark_delete")
-     * @param Request $request
-     * @param Mark $mark
+     * @param Request $request request
+     * @param Mark $mark mark
      * @return Response
      */
     public function delete(Request $request, Mark $mark): Response

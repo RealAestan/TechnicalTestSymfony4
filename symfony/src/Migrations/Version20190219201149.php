@@ -23,7 +23,7 @@ final class Version20190219201149 extends AbstractMigration
     }
 
     /**
-     * @param Schema $schema
+     * @param Schema $schema schema
      * @throws \Doctrine\DBAL\DBALException
      */
     public function up(Schema $schema) : void
@@ -68,7 +68,7 @@ SQL;
     }
 
     /**
-     * @param Schema $schema
+     * @param Schema $schema schema
      * @throws \Doctrine\DBAL\DBALException
      */
     public function down(Schema $schema) : void
