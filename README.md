@@ -1,6 +1,6 @@
 # Mini application symfony 4
 
-### Installation
+## Installation
 
 ### Cloner le repository
 
@@ -15,9 +15,9 @@ Via HTTPS :
 $ git clone https://github.com/RealAestan/TechnicalTestSymfony4.git
 ```
 
-### Installer les dépendances
+## Installer les dépendances
 
-#### Debian/Ubuntu
+### Debian/Ubuntu
 
 ```bash
 $ sudo apt install docker docker-compose make xdg-utils
@@ -32,7 +32,7 @@ $ sudo systemctl start docker.service
 ```
 
 
-#### CentOS/RHEL
+### CentOS/RHEL
 
 ```bash
 $ sudo yum install -y yum-utils device-mapper-persistent-data lvm2 make epel-release xdg-utils
@@ -74,12 +74,12 @@ Il est situé à la racine du projet `deploy.sh`
 $ sudo ./deploy.sh
 ```
 
-# Divers
+## Divers
 
-## Nginx vhost config
+### Nginx vhost config
 
 Les fichiers de configuration pour nginx sont disponibles dans le dossier `nginx`
 
-## PHP-FPM config
+### PHP-FPM config
 
 Les fichiers de configuration pour PHP-FPM sont disponibles dans le dossier `php-fpm`
