@@ -8,7 +8,7 @@ docker-compose up -d
 echo $(docker network inspect bridge | grep Gateway | grep -o -E '([0-9]{1,3}\.){3}[0-9]{1,3}') "symfony.local" >> /etc/hosts
 
 # Install dependencies
-docker-compose exec --user=$(shell id -u) php composer
+docker-compose exec --user=$(shell id -u) php composer install
 docker-compose exec --user=$(shell id -u) yarn install
 docker-compose exec --user=$(shell id -u) yarn run dev
 
