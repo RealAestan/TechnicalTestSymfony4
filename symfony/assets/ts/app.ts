@@ -20,7 +20,7 @@ if (formWithConfirmation !== null) {
             confirm
                 .querySelector("#btnYes").addEventListener("click", () => {
                 confirm.setAttribute("data-result", "yes");
-                form.find("input[type='submit']").attr("disabled", "disabled");
+                form.querySelector("button[type='submit']").setAttribute("disabled", "disabled");
                 form.submit();
             });
             $(confirm)

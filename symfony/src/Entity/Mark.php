@@ -49,14 +49,14 @@ class Mark
      * @ORM\Column(name="result", type="float")
      * @Assert\NotBlank()
      * @Assert\Range(min = 0, max = 20)
-     * @Assert\Regex("/^[0-2][0-9]?(\.[0-9]+)?/")
+     * @Assert\Regex("/^[0-9][0-9]?(\.[0-9]+)?/")
      */
     private $_result;
 
     /**
      * @var Student
      *
-     * @ORM\ManyToOne(targetEntity="Student", inversedBy="marks")
+     * @ORM\ManyToOne(targetEntity="Student", inversedBy="_marks")
      * @ORM\JoinColumn(name="student_id", nullable=false)
      */
     private $_student;

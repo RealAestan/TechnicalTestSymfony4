@@ -43,10 +43,10 @@ class MarkRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this->createQueryBuilder('m')
             ->addSelect('m')
-            ->innerJoin('m.student', 's')
+            ->innerJoin('m._student', 's')
             ->andWhere('s = :student')
             ->setParameter('student', $student)
-            ->orderBy('m.id', 'DESC');
+            ->orderBy('m._id', 'DESC');
 
         return $this->_createPaginator($queryBuilder->getQuery(), $page);
     }

@@ -70,7 +70,7 @@ class Student implements \JsonSerializable
      *
      * @ORM\OneToMany(
      *      targetEntity="Mark",
-     *      mappedBy="student",
+     *      mappedBy="_student",
      *      orphanRemoval=true,
      *      cascade={"persist"}
      * )

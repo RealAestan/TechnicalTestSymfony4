@@ -94,6 +94,10 @@
                 <source>student.deleted_successfully</source>
                 <target>Étudiant supprimé avec succès</target>
             </trans-unit>
+            <trans-unit id="mark.deleted_successfully">
+                <source>mark.deleted_successfully</source>
+                <target>Note supprimée avec succès</target>
+            </trans-unit>
             <trans-unit id="title.edit_student">
                 <source>title.edit_student</source>
                 <target>Éditer un étudiant</target>

@@ -41,8 +41,8 @@ class StudentRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this->createQueryBuilder('s')
             ->addSelect('s', 'm')
-            ->leftJoin('s.marks', 'm')
-            ->orderBy('s.id', 'DESC');
+            ->leftJoin('s._marks', 'm')
+            ->orderBy('s._id', 'DESC');
 
         return $this->_createPaginator($queryBuilder->getQuery(), $page);
     }
@@ -57,11 +57,11 @@ class StudentRepository extends ServiceEntityRepository
         // TODO Replace search with elasticsearch
         return $this->createQueryBuilder('s')
             ->addSelect('s')
-            ->where('s.firstName LIKE :query')
-            ->orWhere('s.lastName LIKE :query')
+            ->where('s._firstName LIKE :query')
+            ->orWhere('s._lastName LIKE :query')
             ->setParameter('query', '%'.$query.'%')
             ->setMaxResults(Student::SEARCH_MAX_ITEMS)
-            ->orderBy('s.id', 'DESC')
+            ->orderBy('s._id', 'DESC')
             ->getQuery()
             ->getResult();
     }

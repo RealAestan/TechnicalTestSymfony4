@@ -67,13 +67,23 @@ class MarkController extends AbstractController
     public function delete(Request $request, Mark $mark): Response
     {
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
-            return $this->redirectToRoute('mark_index');
+            return $this->redirectToRoute(
+                'student_show',
+                    [
+                        'id' => $mark->getStudent()->getId(),
+                    ]
+                );
         }
         $objectManager = $this->getDoctrine()->getManager();
         $objectManager->remove($mark);
         $objectManager->flush();
         $this->addFlash('success', 'mark.deleted_successfully');
 
-        return $this->redirectToRoute('mark_index');
+        return $this->redirectToRoute(
+            'student_show',
+            [
+                'id' => $mark->getStudent()->getId(),
+            ]
+        );
     }
 }
