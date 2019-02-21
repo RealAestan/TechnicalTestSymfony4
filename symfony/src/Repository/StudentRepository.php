@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of TechnicalTestSymfony4.
+ *
+ * @author Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ */
+
 namespace App\Repository;
 
 use App\Entity\Student;
@@ -18,6 +25,7 @@ class StudentRepository extends ServiceEntityRepository
 {
     /**
      * StudentRepository constructor.
+     *
      * @param ManagerRegistry $registry registry
      */
     public function __construct(ManagerRegistry $registry)
@@ -27,6 +35,7 @@ class StudentRepository extends ServiceEntityRepository
 
     /**
      * @param int $page page
+     *
      * @return Pagerfanta
      */
     public function findLatest(int $page = 1): Pagerfanta
@@ -41,6 +50,7 @@ class StudentRepository extends ServiceEntityRepository
 
     /**
      * @param string $query query
+     *
      * @return Student[]
      */
     public function search(string $query): array
@@ -59,7 +69,8 @@ class StudentRepository extends ServiceEntityRepository
 
     /**
      * @param Query $query
-     * @param int $page
+     * @param int   $page
+     *
      * @return Pagerfanta
      */
     private function createPaginator(Query $query, int $page): Pagerfanta
@@ -67,6 +78,7 @@ class StudentRepository extends ServiceEntityRepository
         $paginator = new Pagerfanta(new DoctrineORMAdapter($query));
         $paginator->setMaxPerPage(Student::PAGE_NUM_ITEMS);
         $paginator->setCurrentPage($page);
+
         return $paginator;
     }
 }

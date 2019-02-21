@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of TechnicalTestSymfony4.
+ *
+ * @author Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ */
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -16,9 +23,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Mark
 {
     /**
-     * Default size of page to 30 marks
+     * Default size of page to 30 marks.
      */
-    const PAGE_NUM_ITEMS = 30;
+    public const PAGE_NUM_ITEMS = 30;
 
     /**
      * @var int
@@ -68,7 +75,7 @@ class Mark
      */
     public function getSubject(): string
     {
-        return (string)$this->subject;
+        return (string) $this->subject;
     }
 
     /**
@@ -76,7 +83,7 @@ class Mark
      */
     public function getResult(): float
     {
-        return (float)$this->result;
+        return (float) $this->result;
     }
 
     /**
@@ -87,36 +94,43 @@ class Mark
         if ($this->student instanceof Student) {
             return $this->student;
         }
+
         return new Student();
     }
 
     /**
      * @param string $subject subject
+     *
      * @return Mark
      */
     public function setSubject(string $subject): Mark
     {
         $this->subject = $subject;
+
         return $this;
     }
 
     /**
      * @param float $result result
+     *
      * @return Mark
      */
     public function setResult(float $result): Mark
     {
         $this->result = $result;
+
         return $this;
     }
 
     /**
      * @param Student $student student
+     *
      * @return Mark
      */
     public function setStudent(Student $student): Mark
     {
         $this->student = $student;
+
         return $this;
     }
 }

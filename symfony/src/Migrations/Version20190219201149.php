@@ -2,13 +2,20 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of TechnicalTestSymfony4.
+ *
+ * @author Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ */
+
 namespace DoctrineMigrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 /**
- * This migrations create the default schema of our app
+ * This migrations create the default schema of our app.
  *
  * @author Anthony Margerand <anthony.margerand@protonmail.com>
  */
@@ -17,16 +24,17 @@ final class Version20190219201149 extends AbstractMigration
     /**
      * @return string
      */
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return 'This migrations create the default schema of our app';
     }
 
     /**
      * @param Schema $schema schema
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         $this->abortIf(
             $this->connection->getDatabasePlatform()->getName()
@@ -34,7 +42,7 @@ final class Version20190219201149 extends AbstractMigration
             'Migration can only be executed safely on \'mysql\'.'
         );
 
-        $sql =<<<SQL
+        $sql = <<<SQL
 CREATE TABLE student (
   id INT AUTO_INCREMENT NOT NULL,
   first_name VARCHAR(255) NOT NULL,
@@ -46,7 +54,7 @@ DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB
 SQL;
 
         $this->addSql($sql);
-        $sql =<<<SQL
+        $sql = <<<SQL
 CREATE TABLE mark (
   id INT AUTO_INCREMENT NOT NULL,
   student_id INT NOT NULL,
@@ -59,7 +67,7 @@ DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB
 SQL;
 
         $this->addSql($sql);
-        $sql =<<<SQL
+        $sql = <<<SQL
 ALTER TABLE mark
 ADD CONSTRAINT FK_6674F271CB944F1A
 FOREIGN KEY (student_id) REFERENCES student (id)
@@ -69,9 +77,10 @@ SQL;
 
     /**
      * @param Schema $schema schema
+     *
      * @throws \Doctrine\DBAL\DBALException
      */
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         $this->abortIf(
             $this->connection->getDatabasePlatform()->getName()

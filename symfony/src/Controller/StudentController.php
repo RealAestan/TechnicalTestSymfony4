@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of TechnicalTestSymfony4.
+ *
+ * @author Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ */
+
 namespace App\Controller;
 
 use App\Entity\Mark;
@@ -35,13 +42,16 @@ class StudentController extends AbstractController
      *     name="student_index_paginated"
      * )
      * @Cache(smaxage="10")
-     * @param int $page page
+     *
+     * @param int               $page     page
      * @param StudentRepository $students students
+     *
      * @return Response
      */
     public function index(int $page, StudentRepository $students): Response
     {
         $latestStudents = $students->findLatest($page);
+
         return $this->render(
             'student/index.html.twig',
             ['students' => $latestStudents]
@@ -52,7 +62,9 @@ class StudentController extends AbstractController
      * Creates a new Student entity.
      *
      * @Route("/new", methods={"GET", "POST"}, name="student_new")
+     *
      * @param Request $request request
+     *
      * @return Response
      */
     public function new(Request $request): Response
@@ -69,8 +81,10 @@ class StudentController extends AbstractController
             if ($form->get('saveAndCreateNew')->isClicked()) {
                 return $this->redirectToRoute('student_new');
             }
+
             return $this->redirectToRoute('student_index');
         }
+
         return $this->render('student/new.html.twig', [
             'student' => $student,
             'form' => $form->createView(),
@@ -97,9 +111,11 @@ class StudentController extends AbstractController
      *     methods={"GET"},
      *     name="student_show_paginated"
      * )
-     * @param Student $student student
-     * @param int $page page
-     * @param MarkRepository $marks marks
+     *
+     * @param Student        $student student
+     * @param int            $page    page
+     * @param MarkRepository $marks   marks
+     *
      * @return Response
      */
     public function show(
@@ -108,6 +124,7 @@ class StudentController extends AbstractController
         MarkRepository $marks
     ): Response {
         $latestMarks = $marks->findLatestOfStudent($student, $page);
+
         return $this->render('student/show.html.twig', [
             'student' => $student,
             'marks' => $latestMarks,
@@ -116,8 +133,10 @@ class StudentController extends AbstractController
 
     /**
      * @Route("/{id}/edit", methods={"GET", "POST"}, name="student_edit")
+     *
      * @param Request $request request
      * @param Student $student student
+     *
      * @return Response
      */
     public function edit(Request $request, Student $student): Response
@@ -127,11 +146,13 @@ class StudentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'student.updated_successfully');
+
             return $this->redirectToRoute(
                 'student_edit',
                 ['id' => $student->getId()]
             );
         }
+
         return $this->render('student/edit.html.twig', [
             'student' => $student,
             'form' => $form->createView(),
@@ -142,8 +163,10 @@ class StudentController extends AbstractController
      * Deletes a Student entity.
      *
      * @Route("/{id}/delete", methods={"POST"}, name="student_delete")
+     *
      * @param Request $request request
      * @param Student $student student
+     *
      * @return Response
      */
     public function delete(Request $request, Student $student): Response
@@ -160,26 +183,32 @@ class StudentController extends AbstractController
         $em->remove($student);
         $em->flush();
         $this->addFlash('success', 'student.deleted_successfully');
+
         return $this->redirectToRoute('student_index');
     }
 
     /**
      * @Route("/search/{query}", methods={"GET"}, name="student_search")
      * @Cache(smaxage="10")
-     * @param string $query query
+     *
+     * @param string            $query    query
      * @param StudentRepository $students students
+     *
      * @return JsonResponse
      */
     public function search(StudentRepository $students, string $query = ''): Response
     {
         $latestStudents = $students->search($query);
+
         return new JsonResponse($latestStudents);
     }
 
     /**
      * @Route("/{id}/mark", methods={"GET", "POST"}, name="student_add_mark")
+     *
      * @param Request $request request
      * @param Student $student student
+     *
      * @return Response
      */
     public function addMark(Request $request, Student $student): Response
@@ -200,11 +229,13 @@ class StudentController extends AbstractController
                     ['id' => $student->getId()]
                 );
             }
+
             return $this->redirectToRoute(
                 'student_show',
                 ['id' => $student->getId()]
             );
         }
+
         return $this->render('mark/new.html.twig', [
             'student' => $student,
             'mark' => $mark,

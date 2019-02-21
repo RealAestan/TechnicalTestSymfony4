@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of TechnicalTestSymfony4.
+ *
+ * @author Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ */
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -17,12 +24,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Student implements \JsonSerializable
 {
     /**
-     * Default size of page to 10 students
+     * Default size of page to 10 students.
      */
     public const PAGE_NUM_ITEMS = 20;
 
     /**
-     * Default max results for search to 3 students
+     * Default max results for search to 3 students.
      */
     public const SEARCH_MAX_ITEMS = 3;
 
@@ -81,7 +88,7 @@ class Student implements \JsonSerializable
      */
     public function getFirstName(): string
     {
-        return (string)$this->firstName;
+        return (string) $this->firstName;
     }
 
     /**
@@ -89,7 +96,7 @@ class Student implements \JsonSerializable
      */
     public function getLastName(): string
     {
-        return (string)$this->lastName;
+        return (string) $this->lastName;
     }
 
     /**
@@ -102,6 +109,7 @@ class Student implements \JsonSerializable
 
     /**
      * @return \DateTimeImmutable
+     *
      * @throws \Exception if \DateTimeImmutable can't construct
      */
     public function getBirthDate(): \DateTimeImmutable
@@ -109,61 +117,73 @@ class Student implements \JsonSerializable
         if ($this->birthDate instanceof \DateTimeInterface) {
             return $this->birthDate;
         }
+
         return new \DateTimeImmutable();
     }
 
     /**
      * @param string $firstName
+     *
      * @return Student
      */
     public function setFirstName(string $firstName): Student
     {
         $this->firstName = $firstName;
+
         return $this;
     }
 
     /**
      * @param string $lastName
+     *
      * @return Student
      */
     public function setLastName(string $lastName): Student
     {
         $this->lastName = $lastName;
+
         return $this;
     }
 
     /**
      * @param \DateTimeImmutable $birthDate
+     *
      * @return Student
      */
     public function setBirthDate(\DateTimeImmutable $birthDate): Student
     {
         $this->birthDate = $birthDate;
+
         return $this;
     }
 
     /**
      * @param Mark $mark
+     *
      * @return Student
      */
     public function addMark(Mark $mark): Student
     {
         $this->marks[] = $mark;
+
         return $this;
     }
 
     /**
      * @param Mark $mark
+     *
      * @return Student
      */
     public function removeMark(Mark $mark): Student
     {
         $this->marks->removeElement($mark);
+
         return $this;
     }
 
     /**
-     * Serialize our student to json
+     * Serialize our student to json.
+     *
      * @return array
      */
     public function jsonSerialize()

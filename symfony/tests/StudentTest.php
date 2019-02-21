@@ -2,13 +2,20 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of TechnicalTestSymfony4.
+ *
+ * @author Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ */
+
 namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class StudentTest extends WebTestCase
 {
-    public function testPostStudent()
+    public function testPostStudent(): void
     {
         $client = self::createClient();
         $crawler = $client->request('GET', '/students/new');
@@ -20,7 +27,7 @@ class StudentTest extends WebTestCase
             'student[birthDate][year]' => '1966',
         ]);
         $this->assertTrue(
-            strpos(
+            \strpos(
                 $client->submit($form)->html(),
                 'Redirecting to /students'
             ) !== false

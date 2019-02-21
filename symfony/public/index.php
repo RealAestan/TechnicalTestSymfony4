@@ -1,13 +1,20 @@
 <?php
 
+/*
+ * This file is part of TechnicalTestSymfony4.
+ *
+ * @author Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ */
+
 use App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
-require dirname(__DIR__).'/config/bootstrap.php';
+require \dirname(__DIR__).'/config/bootstrap.php';
 
 if ($_SERVER['APP_DEBUG']) {
-    umask(0000);
+    \umask(0000);
 
     Debug::enable();
 }
@@ -16,7 +23,7 @@ if ($trustedProxies = $_SERVER['TRUSTED_PROXIES']
     ?? $_ENV['TRUSTED_PROXIES'] ?? false
 ) {
     Request::setTrustedProxies(
-        explode(',', $trustedProxies),
+        \explode(',', $trustedProxies),
         Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST
     );
 }

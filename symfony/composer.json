@@ -69,8 +69,8 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
-        "cscheck": "phpcs",
-        "csfix": "phpcbf",
+        "cscheck": "php vendor/friendsofphp/php-cs-fixer/php-cs-fixer  fix --ansi --verbose --diff --dry-run",
+        "csfix": "php vendor/friendsofphp/php-cs-fixer/php-cs-fixer  fix --ansi --verbose",
         "phpstan": "phpstan analyse src/ -c phpstan.neon --level=7 --no-progress -vvv --memory-limit=1024M",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",

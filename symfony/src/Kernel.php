@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of TechnicalTestSymfony4.
+ *
+ * @author Anthony Margerand <anthony.margerand@protonmail.com>
+ * @link https://github.com/RealAestan/TechnicalTestSymfony4
+ */
+
 namespace App;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
@@ -13,7 +20,7 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-    const CONFIG_EXTS = '.{php,xml,yaml,yml}';
+    public const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
     public function registerBundles()
     {
@@ -28,7 +35,7 @@ class Kernel extends BaseKernel
     protected function configureContainer(
         ContainerBuilder $container,
         LoaderInterface $loader
-    ) {
+    ): void {
         $container->addResource(
             new FileResource($this->getProjectDir().'/config/bundles.php')
         );
@@ -54,7 +61,7 @@ class Kernel extends BaseKernel
         );
     }
 
-    protected function configureRoutes(RouteCollectionBuilder $routes)
+    protected function configureRoutes(RouteCollectionBuilder $routes): void
     {
         $confDir = $this->getProjectDir().'/config';
 
