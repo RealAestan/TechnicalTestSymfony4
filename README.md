@@ -19,102 +19,47 @@ $ git clone https://github.com/RealAestan/TechnicalTestSymfony4.git
 
 ## Installer les dépendances
 
-### Ubuntu
+### Installer Docker
+
+#### Ubuntu
+
+https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/
+
+#### Debian
+
+https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/debian/
+
+### CentOS
+
+https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/centos
+
+### Installer Docker Compose
+
+https://docs.docker.com/compose/install/
+
+### Debian/Ubuntu
 
 ```bash
 $ sudo apt-get update
 ```
 
 ```bash
-$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common make xdg-utils
-```
-
-```bash
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-```
-```bash
-$ sudo apt-get update
-```
-
-```bash
-$ sudo apt install docker-ce python-pip
-```
-
-```bash
-$ sudo usermod -aG docker $(whoami)
-```
-
-```bash
-$ sudo pip install docker-compose
-```
-
-### Debian
-
-```bash
-$ sudo apt-get update
-```
-
-```bash
-$ sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common make xdg-utils
-```
-
-```bash
-$ curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
-```
-
-```bash
-$ sudo apt-get update
-```
-
-```bash
-$ sudo apt install docker-ce python-pip
-```
-
-```bash
-$ sudo usermod -aG docker $(whoami)
-```
-
-```bash
-$ sudo pip install docker-compose
+$ sudo apt-get install make xdg-utils
 ```
 
 ### CentOS
 
 ```bash
-$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2 make epel-release xdg-utils
-```
-
-```bash
-$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-```
-
-```bash
-$ sudo yum install docker-ce python-pip
-```
-
-```bash
-$ sudo usermod -aG docker $(whoami)
-```
-
-```bash
-$ sudo systemctl enable docker.service
-```
-
-```bash
-$ sudo systemctl start docker.service
-```
-
-```bash
-$ sudo pip install docker-compose
-```
-
-```bash
-$ sudo yum upgrade python*
+$ sudo yum install -y make xdg-utils
 ```
 
 ## Lancer le script d'installation
 
 Il est situé à la racine du projet `deploy.sh`
+
+```bash
+$ sudo chmod +x deploy.sh
+```
 
 ```bash
 $ sudo ./deploy.sh
