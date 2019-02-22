@@ -65,6 +65,13 @@ $ sudo chmod +x deploy.sh
 $ sudo ./deploy.sh
 ```
 
+## Troubleshooting
+
+L'application doit s'ouvrir automatiquement dans votre navigateur par défaut,
+si ce n'est pas le cas rendez-vous sur http://symfony.localhost:8080/
+
+Si cela ne fonctionne pas vérifier le contenu de votre fichier /etc/hosts
+
 ## Divers
 
 ### Nginx vhost config
