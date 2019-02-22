@@ -72,6 +72,12 @@ si ce n'est pas le cas rendez-vous sur `http://symfony.localhost:8080/`
 
 Si cela ne fonctionne pas vérifier le contenu de votre fichier /etc/hosts
 
+Il doit y avoir une ligne contenant le resultat de cette commande :
+
+```bash
+$ echo $(docker network inspect bridge | grep Gateway | grep -o -E '([0-9]{1,3}\.){3}[0-9]{1,3}') "symfony.local"
+```
+
 ## Divers
 
 ### Nginx vhost config
