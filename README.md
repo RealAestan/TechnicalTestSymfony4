@@ -81,7 +81,7 @@ Le code source du projet symfony est disponible dans le dossier `symfony`
 
 ### Versions utilisées
 
-* PHP 7.2.13
-* Symfony 4.2.3
-* Nginx 1.14.2
-* MySQL 5.7.21
+*  PHP 7.2.13
+*  Symfony 4.2.3
+*  Nginx 1.14.2
+*  MySQL 5.7.21
