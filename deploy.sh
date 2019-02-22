@@ -10,15 +10,14 @@ echo $(docker network inspect bridge | grep Gateway | grep -o -E '([0-9]{1,3}\.)
 
 # Install dependencies
 docker-compose exec --user=$(whoami) php composer install
-docker-compose exec --user=$(whoami) yarn install
-docker-compose exec --user=$(whoami) yarn run dev
+docker-compose exec --user=$(whoami) php yarn install
+docker-compose exec --user=$(whoami) php yarn run dev
 
 # Prepare database
-docker-compose exec --user=$(whoami) php bin/console doctrine:database:create
 docker-compose exec --user=$(whoami) php bin/console doctrine:migrations:migrate --no-interaction
 
 # Warmup cache to avoid first slow loading :)
-docker-compose exec --user=$(whoami) php bin/console cache-warmup
+docker-compose exec --user=$(whoami) php bin/console cache:warmup
 
 # Open if possible the project
-xdg-open http://symfony.localhost:8080 &
+su -c "xdg-open http://symfony.localhost:8080" $SUDO_USER &
