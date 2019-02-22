@@ -18,6 +18,7 @@ docker-compose exec --user=$(whoami) php bin/console doctrine:migrations:migrate
 
 # Warmup cache to avoid first slow loading :)
 docker-compose exec --user=$(whoami) php bin/console cache:warmup
+docker-compose exec --user=$(whoami) php chmod -R 777 var/log
 
 # Open if possible the project
 su -c "xdg-open http://symfony.localhost:8080" $SUDO_USER &
