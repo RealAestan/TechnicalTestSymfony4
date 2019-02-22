@@ -29,7 +29,7 @@ https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/
 
 https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/debian/
 
-### CentOS
+#### CentOS
 
 https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/centos
 
