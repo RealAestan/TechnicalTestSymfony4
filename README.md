@@ -37,7 +37,7 @@ $ git clone https://github.com/RealAestan/TechnicalTestSymfony4.git
 
 `https://docs.docker.com/compose/install/`
 
-### Debian/Ubuntu
+### Debian/Ubuntu utilitaires
 
 ```bash
 $ sudo apt-get update
@@ -47,7 +47,7 @@ $ sudo apt-get update
 $ sudo apt-get install make xdg-utils
 ```
 
-### CentOS
+### CentOS utilitaires
 
 ```bash
 $ sudo yum install -y make xdg-utils
@@ -81,7 +81,7 @@ Le code source du projet symfony est disponible dans le dossier `symfony`
 
 ### Versions utilisées
 
-*  PHP 7.2.13
-*  Symfony 4.2.3
-*  Nginx 1.14.2
-*  MySQL 5.7.21
+*   PHP 7.2.13
+*   Symfony 4.2.3
+*   Nginx 1.14.2
+*   MySQL 5.7.21
